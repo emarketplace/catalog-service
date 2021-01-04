@@ -26,3 +26,17 @@ springdoc:
   api-docs:
     enabled: true
     path: /catalog-service/api-specs
+
+management:
+  metrics:
+    tags:
+      application: catalog-service
+  endpoint:
+    restart:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
