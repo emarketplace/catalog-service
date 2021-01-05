@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools{
+        maven 'maven'
+    }
     environment {
         REPOSITORY = "muhammedshaheer"
         IMAGE_NAME = "emarketplace-catalog-service"
