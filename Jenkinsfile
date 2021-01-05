@@ -6,7 +6,7 @@ pipeline {
         NAMESPACE = "backend"
         SERVICE_NAME = "catalog-service"
     }
-    stages{
+    stages {
         stage('Maven Build') {
             steps {
                 sh 'mvn clean install'
@@ -17,12 +17,12 @@ pipeline {
                 sh 'docker build -t $REPOSITORY/$IMAGE_NAME:${BUILD_NUMBER} .'
             }
         }
-        stage {
+        stage('Push to Docker Hub') {
             steps {
                 sh 'docker push $REPOSITORY/$IMAGE_NAME:${BUILD_NUMBER}'
             }
         }
-        stage {
+        stage('Deploy App') {
             steps {
                 sh 'helm upgrade --install $SERVICE_NAME ./helm -n $NAMESPACE --set image.repository=$REPOSITORY/$IMAGE_NAME --set image.tag=${BUILD_NUMBER}'
             }
