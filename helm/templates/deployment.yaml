@@ -47,6 +47,14 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      env:
+        - name: SPRING_DATASOURCE_URL
+          valueFrom:
+            secretKeyRef:
+            # The secret resource we are reading from
+            name: {{ include "helm.fullname" . }}
+            # This key is read from our helm-secret secrets.yaml
+            key: mongodb-url
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
