@@ -18,6 +18,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh 'docker version'
+                sh 'docker ps'
                 sh 'docker build -t $REPOSITORY/$IMAGE_NAME:${BUILD_NUMBER} .'
             }
         }
