@@ -17,7 +17,7 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2020.0.0-M5</spring-cloud.version>
-        <library.version>0.0.1-20201223.080337-6</library.version>
+        <library.version>0.0.1-20210106.161957-9</library.version>
     </properties>
 
     <dependencies>
