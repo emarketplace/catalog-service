@@ -1,9 +1,9 @@
-#spring:
-#  profiles:
-#    active: dev
 spring:
-  data:
-    mongodb:
-      uri: ${SPRING_DATASOURCE_URL}
-      database: userDB
-      auto-index-creation: true
+  profiles:
+    active: dev
+#spring:
+#  data:
+#    mongodb:
+#      uri: ${SPRING_DATASOURCE_URL}
+#      database: userDB
+#      auto-index-creation: true
