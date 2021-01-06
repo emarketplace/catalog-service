@@ -6,14 +6,13 @@ spring:
     kubernetes:
       config:
         enabled: false
-        paths: /etc/config/application.yaml
+      #paths: /etc/config/application.yaml
       #spring.cloud.kubernetes.reload.enabled= true
       #spring.cloud.kubernetes.reload.strategy defaults to refresh. Can be also set to restart_context or shutdown
       reload:
         strategy: refresh
       discovery:
         all-namespaces: true
-#spring.cloud.kubernetes.config.paths=/etc/config/application.yaml
 
 server:
   port: 7002
