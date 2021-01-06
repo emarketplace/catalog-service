@@ -54,10 +54,10 @@ spec:
                   name: backend-service
                   key: mongodb-url
             - name: SPRING_ACTIVE_PROFILE
-                valueFrom:
-                  secretKeyRef:
-                    name: backend-service
-                    key: active-profile
+              valueFrom:
+                secretKeyRef:
+                  name: backend-service
+                  key: active-profile
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
