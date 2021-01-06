@@ -11,8 +11,10 @@ pipeline {
     }
     stages {
         stage('Start') {
-            sh 'kubectl cluster-info'
-            sh 'hostname'
+            steps {
+                sh 'kubectl cluster-info'
+                sh 'hostname'
+            }
         }
         stage('Test') {
             steps {
