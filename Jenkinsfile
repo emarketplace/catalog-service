@@ -10,6 +10,10 @@ pipeline {
         SERVICE_NAME = "catalog-service"
     }
     stages {
+        stage('Start') {
+            sh 'kubectl cluster-info'
+            sh 'hostname'
+        }
         stage('Test') {
             steps {
                 sh 'rm ./src/main/resources/application.yaml'
