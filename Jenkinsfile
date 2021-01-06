@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-                withDockerRegistry(registry:'dockerhub'){
+                withDockerRegistry(registry:'', 'dockerhub'){
                     sh 'docker push $REPOSITORY/$IMAGE_NAME:${BUILD_NUMBER}'
                 }
             }
