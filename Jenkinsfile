@@ -12,8 +12,8 @@ pipeline {
     stages {
         stage('Start') {
             steps {
-                sh 'kubectl cluster-info dump'
-                sh 'hostname'
+                sh 'kubectl version'
+                sh 'helm version'
             }
         }
         stage('Test') {
