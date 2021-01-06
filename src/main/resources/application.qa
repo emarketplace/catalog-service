@@ -1,3 +1,1 @@
-spring:
-  profiles:
-    active: qa
+spring.profiles.active:qa
