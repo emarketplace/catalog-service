@@ -12,8 +12,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'rm ./src/main/resources/application.yaml'
-                sh 'mv ./src/main/resources/application.qa ./src/main/resources/application.yaml'
+//                 sh 'rm ./src/main/resources/application.yaml'
+//                 sh 'mv ./src/main/resources/application.qa ./src/main/resources/application.yaml'
                 sh 'mvn clean test'
             }
         }
