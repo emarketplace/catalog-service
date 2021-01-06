@@ -10,6 +10,13 @@ pipeline {
         SERVICE_NAME = "catalog-service"
     }
     stages {
+        stage {
+            steps {
+                sh 'rm ./src/main/resources/application.yaml'
+                sh 'mv ./src/main/resources/application.qa ./src/main/resources/application.yaml'
+                sh 'mvn clean test'
+            }
+        }
         stage('Maven Build') {
             steps {
                 sh 'mvn clean install'
