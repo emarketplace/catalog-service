@@ -30,10 +30,9 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-//                 withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-                    sh 'docker login --username dockerhub --password-stdin'
+                withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
                     sh 'docker push $REPOSITORY/$IMAGE_NAME:${BUILD_NUMBER}'
-//                 }
+                }
             }
         }
         stage('Deploy App') {
