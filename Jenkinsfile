@@ -10,12 +10,6 @@ pipeline {
         SERVICE_NAME = "catalog-service"
     }
     stages {
-        stage('Start') {
-            steps {
-                sh 'kubectl version'
-                sh 'helm version'
-            }
-        }
         stage('Test') {
             steps {
                 sh 'rm ./src/main/resources/application.yaml'
