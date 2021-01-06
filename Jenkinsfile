@@ -10,7 +10,7 @@ pipeline {
         SERVICE_NAME = "catalog-service"
     }
     stages {
-        stage {
+        stage('Test') {
             steps {
                 sh 'rm ./src/main/resources/application.yaml'
                 sh 'mv ./src/main/resources/application.qa ./src/main/resources/application.yaml'
