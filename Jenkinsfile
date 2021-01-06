@@ -36,7 +36,9 @@ pipeline {
         }
         stage('Deploy App') {
             steps {
-                sh 'helm upgrade --install $SERVICE_NAME ./helm -n $NAMESPACE --set image.repository=$REPOSITORY/$IMAGE_NAME --set image.tag=${BUILD_NUMBER}'
+                withCredentials([file(credentialsId: '	kubeconfig', variable: '')]) {
+                    sh 'helm upgrade --install $SERVICE_NAME ./helm -n $NAMESPACE --set image.repository=$REPOSITORY/$IMAGE_NAME --set image.tag=${BUILD_NUMBER}'
+                }
             }
         }
         stage('Pruning') {
