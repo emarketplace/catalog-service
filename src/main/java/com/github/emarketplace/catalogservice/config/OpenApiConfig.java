@@ -25,7 +25,7 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI openAPI() {
         String[] activeProfiles = env.getActiveProfiles();
-        System.out.println(Arrays.toString(activeProfiles));
+        System.out.println("Active profiles: " + Arrays.toString(activeProfiles));
         return new OpenAPI()
                 .components(new Components())
                 .info(new Info()
