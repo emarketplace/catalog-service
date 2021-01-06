@@ -1,6 +1,8 @@
 spring:
   application:
     name: catalog-service
+  profiles:
+    active: ${SPRING_ACTIVE_PROFILE}
   #kubernetes properties
   cloud:
     kubernetes:
