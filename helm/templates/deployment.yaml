@@ -60,7 +60,7 @@ spec:
                   key: mongodb-password
             - name: SPRING_ACTIVE_PROFILE
               valueFrom:
-                secretKeyRef:
+                configMapKeyRef:
                   name: backend-service
                   key: active-profile
       {{- with .Values.nodeSelector }}
