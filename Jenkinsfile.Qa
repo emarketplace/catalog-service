@@ -27,14 +27,14 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-                withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+                withDockerRegistry([ credentialsId: "DOCKER_HUB", url: "" ]) {
                     sh 'docker push $REPOSITORY/$IMAGE_NAME:${BUILD_NUMBER}'
                 }
             }
         }
         stage('Deploy App') {
             steps {
-                withKubeConfig([credentialsId: 'mykubeconfig', serverUrl: '']) {
+                withKubeConfig([credentialsId: 'KUBE_CONFIG', serverUrl: '']) {
                     sh 'helm upgrade --install $SERVICE_NAME ./helm -n $NAMESPACE --set image.repository=$REPOSITORY/$IMAGE_NAME --set image.tag=${BUILD_NUMBER}'
                 }
             }
