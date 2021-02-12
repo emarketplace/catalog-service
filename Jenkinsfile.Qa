@@ -7,10 +7,14 @@ pipeline {
         SERVICE_NAME = "catalog-service"
     }
     stages {
-        stage('Test') {
+        stage('Start') {
             steps {
                 sh 'rm ./src/main/resources/application.yaml'
                 sh 'mv ./src/main/resources/application-qa.yaml ./src/main/resources/application.yaml'
+            }
+        }
+        stage('Test') {
+            steps {
                 sh 'mvn clean test'
             }
         }
