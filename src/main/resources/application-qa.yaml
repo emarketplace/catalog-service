@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: qa
   data:
     mongodb:
       uri: mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.y2uns.mongodb.net
