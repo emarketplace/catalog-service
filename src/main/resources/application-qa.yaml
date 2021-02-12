@@ -1,6 +1,6 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://${SPRING_DATASOURCE_USERNAME}:${SPRING_DATASOURCE_PASSWORD}@cluster0.y2uns.mongodb.net
+      uri: mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.y2uns.mongodb.net
       database: userDB
       auto-index-creation: true
