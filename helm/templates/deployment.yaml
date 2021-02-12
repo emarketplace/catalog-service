@@ -52,22 +52,6 @@ spec:
                 name: backend-service
             - configMapRef:
                 name: backend-service
-#          env:
-#            - name: SPRING_DATASOURCE_USERNAME
-#              valueFrom:
-#                secretKeyRef:
-#                  name: backend-service
-#                  key: mongodb-username
-#            - name: SPRING_DATASOURCE_PASSWORD
-#              valueFrom:
-#                secretKeyRef:
-#                  name: backend-service
-#                  key: mongodb-password
-#            - name: SPRING_ACTIVE_PROFILE
-#              valueFrom:
-#                configMapKeyRef:
-#                  name: backend-service
-#                  key: active-profile
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
