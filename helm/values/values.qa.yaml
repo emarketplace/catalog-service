@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: muhammedshaheer/emarketplace-catalog-service
+  repository: muhammedshaheer/emarketplace-qa-catalog-service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -23,7 +23,11 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: "backend-service-account"
 
-podAnnotations: {}
+podAnnotations:
+  prometheus.io/scheme: 'http'
+  prometheus.io/path: '/api/actuator/prometheus'
+  prometheus.io/port: '7002'
+  prometheus.io/scrape: 'true'
 
 podSecurityContext: {}
   # fsGroup: 2000
@@ -68,11 +72,12 @@ resources: {}
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 10
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 90
 
-nodeSelector: {}
+nodeSelector:
+  group: backend
 
 tolerations: []
 
