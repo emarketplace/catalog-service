@@ -39,7 +39,7 @@ pipeline {
         stage('Deploy App') {
             steps {
                 withKubeConfig([credentialsId: 'KUBE_CONFIG', serverUrl: '']) {
-                    sh 'helm upgrade --install $SERVICE_NAME ./helm/chart --values ./helm/values/values.qa.yaml -n $NAMESPACE --set image.repository=$REPOSITORY/$IMAGE_NAME --set image.tag=${BUILD_NUMBER}'
+                    sh 'helm upgrade --install $SERVICE_NAME ./helm/charts --values ./helm/values/values.qa.yaml -n $NAMESPACE --set image.repository=$REPOSITORY/$IMAGE_NAME --set image.tag=${BUILD_NUMBER}'
                 }
             }
         }
